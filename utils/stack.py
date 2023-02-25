@@ -8,8 +8,6 @@ class Stack:
     вошел — первым вышел» (last-in, first-out — LIFO). """
 
     def __init__(self) -> None:
-        """инициализация пустого стэка"""
-        self.datas = []
         """top— последний элемент в стэке"""
         self.top = None
 
@@ -20,26 +18,16 @@ class Stack:
             text += dic + "=" + str(self.__dict__[dic]) + ", "
         return f"{text[:-2]}"
 
-    def push(self, data) -> Node:
+    def push(self, data) -> None:
         """push: добавить элемент в стек"""
-        if len(self.datas) == 0:
-            new_node = Node(data)
-        else:
-            new_node = Node(data, self.top)
-        self.top = new_node
-        return self.datas.append(new_node)
+        next_node = self.top
+        new_top = Node(data, next_node)
+        self.top = new_top
 
     def pop(self) -> Node:
         """pop: удалить  последний элемент из стека"""
-        if len(self.datas) == 0:
-            self.top = None
-        elif len(self.datas) == 1:
-            new_node = self.top
-            self.top = None
-            self.datas.pop()
-            return new_node.data
-        else:
-            new_node = self.top
-            self.top = self.datas[len(self.datas) - 2]
-            self.datas.pop()
-            return new_node.data
+        if self.top is None:
+            return None
+        removed_data = self.top.data
+        self.top = self.top.next_node
+        return removed_data
