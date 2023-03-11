@@ -1,10 +1,4 @@
-class Node():
-    """Класс узла `Node`, содержащий два атрибута:
-    - данные (любые полезные данные: число, строка, список и т.д.)
-    - ссылка на следующий узел"""
-    def __init__(self, data, next=None):
-        self.data = data
-        self.next_node = next
+from node import Node
 
 
 class Queue:
@@ -25,3 +19,11 @@ class Queue:
         else:
             self.tail.next_node = new_node
             self.tail = new_node
+
+    def dequeue(self):
+        dequeue_node = self.head
+        if self.head is None:
+            return None
+        else:
+            self.head = self.head.next_node
+            return dequeue_node.data
