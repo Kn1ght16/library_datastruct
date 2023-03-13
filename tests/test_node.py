@@ -1,5 +1,5 @@
-from node import Node
 import unittest
+from node import Node
 
 
 class Test_Node(unittest.TestCase):

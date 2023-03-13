@@ -1,6 +1,7 @@
 from utils.node import Node
 from utils.stack import Stack
 from utils.custom_queue import Queue
+from utils.linked_list import LinkedList
 
 
 def main():
@@ -56,6 +57,13 @@ def main():
     print(queue.dequeue())
     print(queue.dequeue())
     print(queue.dequeue())
+
+    ll = LinkedList()
+    ll.insert_beginning({'id': 1})
+    ll.insert_at_end({'id': 2})
+    ll.insert_at_end({'id': 3})
+    ll.insert_beginning({'id': 0})
+    ll.print_ll()
 
 
 if __name__ == "__main__":
