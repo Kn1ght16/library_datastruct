@@ -1,6 +1,7 @@
 from utils.node import Node
 from utils.stack import Stack
 from utils.custom_queue import Queue
+from utils.linked_list import LinkedList
 
 
 def main():
@@ -50,8 +51,44 @@ def main():
     print(queue.head.next_node.data)
     print(queue.tail.data)
     print(queue.tail.next_node)
-    print(queue.tail.next_node.data)
+    #print(queue.tail.next_node.data)
 
+    print(queue.dequeue())
+    print(queue.dequeue())
+    print(queue.dequeue())
+    print(queue.dequeue())
 
-if __name__ == "__main__":
-    main()
+    ll = LinkedList()
+    ll.insert_beginning({'id': 1})
+    ll.insert_at_end({'id': 2})
+    ll.insert_at_end({'id': 3})
+    ll.insert_beginning({'id': 0})
+    ll.print_ll()
+
+    ll = LinkedList()
+
+    ll.insert_beginning({'id': 1, 'username': 'lazzy508509'})
+    ll.insert_at_end({'id': 2, 'username': 'mik.roz'})
+    ll.insert_at_end({'id': 3, 'username': 'mosh_s'})
+    ll.insert_beginning({'id': 0, 'username': 'serebro'})
+
+# метод to_list()
+    lst = ll.to_list()
+    for item in lst: print(item)
+
+# get_data_by_id()
+    user_data = ll.get_data_by_id(3)
+    print(user_data)
+
+# работа блока try/except
+    ll = LinkedList()
+    ll.insert_beginning({'id': 1, 'username': 'lazzy508509'})
+    ll.insert_at_end('idusername')
+    ll.insert_at_end([1, 2, 3])
+    ll.insert_at_end({'id': 2, 'username': 'mosh_s'})
+
+    user_data = ll.get_data_by_id(2)
+    print(user_data)
+
+#if __name__ == "__main__":
+main()
