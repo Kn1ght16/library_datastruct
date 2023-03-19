@@ -1,5 +1,5 @@
 import unittest
-from custom_queue import Queue
+from utils.custom_queue import Queue
 
 
 class Test_Queue(unittest.TestCase):
